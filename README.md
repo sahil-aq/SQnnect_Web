@@ -1,7 +1,7 @@
 # SQnnect_Web
 SQnnect is a WebApplication that helps the user to execute queries on a web page. <br>
-It fetches the queries from SQL a Databse and fires those queries against the Northwind Database.<br>
-The resultset of those queries are displayed on a different webpage in a tabular format.<br>
+It fetches the queries from SQL Databse and fires the queries against the Northwind Database.<br>
+The resultset of the queries are displayed on a different webpage in a tabular format.<br>
 Hence providing the user with an easy to use User Interface and a great User Experience.<br>
 
 <h2> Index </h2>
