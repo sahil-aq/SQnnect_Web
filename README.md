@@ -7,6 +7,7 @@ Hence providing the user with an easy to use User Interface and a great User Exp
 <h2> Index </h2>
 <a href="https://github.com/sahil-aq/SQnnect_Web/blob/main/LLD%20WebApp.pdf">WebApp LLD</a> <br>
 <a href="https://github.com/sahil-aq/SQnnect_Web/blob/main/HLD%20WebApp.pdf">WebApp HLD</a> <br>
+<a href="https://www.figma.com/file/zAqIJ7lqOKctgx7YRAme2p/Untitled?node-id=0%3A1">Figma SQnnect</a> <br>
 <a href="https://github.com/sahil-aq/SQnnect_Web/blob/main/Login_Test_Cases.xlsx"> Login Test Cases</a><br>
 <a href="https://github.com/sahil-aq/SQnnect_Web/blob/main/Query_Table%20Test_Cases.xlsx">Query Test Cases</a> <br>
 <a href="https://github.com/sahil-aq/SQnnect_Web/blob/main/northwind.sql">Northwind Database <a><br>
