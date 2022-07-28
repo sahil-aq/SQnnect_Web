@@ -264,6 +264,28 @@ INSERT INTO `employeeterritories` VALUES (2,'01581'),(2,'01730'),(2,'01833'),(2,
 UNLOCK TABLES;
 
 --
+-- Table structure for table `hibernate_sequence`
+--
+
+DROP TABLE IF EXISTS `hibernate_sequence`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hibernate_sequence`
+--
+
+LOCK TABLES `hibernate_sequence` WRITE;
+/*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
+INSERT INTO `hibernate_sequence` VALUES (1);
+/*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Temporary view structure for view `invoices`
 --
 
@@ -492,6 +514,8 @@ CREATE TABLE `products` (
   `UnitsOnOrder` smallint DEFAULT '0',
   `ReorderLevel` smallint DEFAULT '0',
   `Discontinued` bit(1) NOT NULL DEFAULT b'0',
+  `id` int NOT NULL,
+  `product_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ProductID`),
   KEY `ProductName` (`ProductName`),
   KEY `FK_Products_Categories` (`CategoryID`),
@@ -507,7 +531,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Chai',1,1,'10 boxes x 20 bags',18.0000,39,0,10,_binary '\0'),(2,'Chang',1,1,'24 - 12 oz bottles',19.0000,17,40,25,_binary '\0'),(3,'Aniseed Syrup',1,2,'12 - 550 ml bottles',10.0000,13,70,25,_binary '\0'),(4,'Chef Anton\'s Cajun Seasoning',2,2,'48 - 6 oz jars',22.0000,53,0,0,_binary '\0'),(5,'Chef Anton\'s Gumbo Mix',2,2,'36 boxes',21.3500,0,0,0,_binary ''),(6,'Grandma\'s Boysenberry Spread',3,2,'12 - 8 oz jars',25.0000,120,0,25,_binary '\0'),(7,'Uncle Bob\'s Organic Dried Pears',3,7,'12 - 1 lb pkgs.',30.0000,15,0,10,_binary '\0'),(8,'Northwoods Cranberry Sauce',3,2,'12 - 12 oz jars',40.0000,6,0,0,_binary '\0'),(9,'Mishi Kobe Niku',4,6,'18 - 500 g pkgs.',97.0000,29,0,0,_binary ''),(10,'Ikura',4,8,'12 - 200 ml jars',31.0000,31,0,0,_binary '\0'),(11,'Queso Cabrales',5,4,'1 kg pkg.',21.0000,22,30,30,_binary '\0'),(12,'Queso Manchego La Pastora',5,4,'10 - 500 g pkgs.',38.0000,86,0,0,_binary '\0'),(13,'Konbu',6,8,'2 kg box',6.0000,24,0,5,_binary '\0'),(14,'Tofu',6,7,'40 - 100 g pkgs.',23.2500,35,0,0,_binary '\0'),(15,'Genen Shouyu',6,2,'24 - 250 ml bottles',15.5000,39,0,5,_binary '\0'),(16,'Pavlova',7,3,'32 - 500 g boxes',17.4500,29,0,10,_binary '\0'),(17,'Alice Mutton',7,6,'20 - 1 kg tins',39.0000,0,0,0,_binary ''),(18,'Carnarvon Tigers',7,8,'16 kg pkg.',62.5000,42,0,0,_binary '\0'),(19,'Teatime Chocolate Biscuits',8,3,'10 boxes x 12 pieces',9.2000,25,0,5,_binary '\0'),(20,'Sir Rodney\'s Marmalade',8,3,'30 gift boxes',81.0000,40,0,0,_binary '\0'),(21,'Sir Rodney\'s Scones',8,3,'24 pkgs. x 4 pieces',10.0000,3,40,5,_binary '\0'),(22,'Gustaf\'s Knckebrd',9,5,'24 - 500 g pkgs.',21.0000,104,0,25,_binary '\0'),(23,'Tunnbrd',9,5,'12 - 250 g pkgs.',9.0000,61,0,25,_binary '\0'),(24,'Guaran Fantstica',10,1,'12 - 355 ml cans',4.5000,20,0,0,_binary ''),(25,'NuNuCa Nu-Nougat-Creme',11,3,'20 - 450 g glasses',14.0000,76,0,30,_binary '\0'),(26,'Gumbr Gummibrchen',11,3,'100 - 250 g bags',31.2300,15,0,0,_binary '\0'),(27,'Schoggi Schokolade',11,3,'100 - 100 g pieces',43.9000,49,0,30,_binary '\0'),(28,'Rssle Sauerkraut',12,7,'25 - 825 g cans',45.6000,26,0,0,_binary ''),(29,'Thringer Rostbratwurst',12,6,'50 bags x 30 sausgs.',123.7900,0,0,0,_binary ''),(30,'Nord-Ost Matjeshering',13,8,'10 - 200 g glasses',25.8900,10,0,15,_binary '\0'),(31,'Gorgonzola Telino',14,4,'12 - 100 g pkgs',12.5000,0,70,20,_binary '\0'),(32,'Mascarpone Fabioli',14,4,'24 - 200 g pkgs.',32.0000,9,40,25,_binary '\0'),(33,'Geitost',15,4,'500 g',2.5000,112,0,20,_binary '\0'),(34,'Sasquatch Ale',16,1,'24 - 12 oz bottles',14.0000,111,0,15,_binary '\0'),(35,'Steeleye Stout',16,1,'24 - 12 oz bottles',18.0000,20,0,15,_binary '\0'),(36,'Inlagd Sill',17,8,'24 - 250 g  jars',19.0000,112,0,20,_binary '\0'),(37,'Gravad lax',17,8,'12 - 500 g pkgs.',26.0000,11,50,25,_binary '\0'),(38,'Cte de Blaye',18,1,'12 - 75 cl bottles',263.5000,17,0,15,_binary '\0'),(39,'Chartreuse verte',18,1,'750 cc per bottle',18.0000,69,0,5,_binary '\0'),(40,'Boston Crab Meat',19,8,'24 - 4 oz tins',18.4000,123,0,30,_binary '\0'),(41,'Jack\'s New England Clam Chowder',19,8,'12 - 12 oz cans',9.6500,85,0,10,_binary '\0'),(42,'Singaporean Hokkien Fried Mee',20,5,'32 - 1 kg pkgs.',14.0000,26,0,0,_binary ''),(43,'Ipoh Coffee',20,1,'16 - 500 g tins',46.0000,17,10,25,_binary '\0'),(44,'Gula Malacca',20,2,'20 - 2 kg bags',19.4500,27,0,15,_binary '\0'),(45,'Rogede sild',21,8,'1k pkg.',9.5000,5,70,15,_binary '\0'),(46,'Spegesild',21,8,'4 - 450 g glasses',12.0000,95,0,0,_binary '\0'),(47,'Zaanse koeken',22,3,'10 - 4 oz boxes',9.5000,36,0,0,_binary '\0'),(48,'Chocolade',22,3,'10 pkgs.',12.7500,15,70,25,_binary '\0'),(49,'Maxilaku',23,3,'24 - 50 g pkgs.',20.0000,10,60,15,_binary '\0'),(50,'Valkoinen suklaa',23,3,'12 - 100 g bars',16.2500,65,0,30,_binary '\0'),(51,'Manjimup Dried Apples',24,7,'50 - 300 g pkgs.',53.0000,20,0,10,_binary '\0'),(52,'Filo Mix',24,5,'16 - 2 kg boxes',7.0000,38,0,25,_binary '\0'),(53,'Perth Pasties',24,6,'48 pieces',32.8000,0,0,0,_binary ''),(54,'Tourtire',25,6,'16 pies',7.4500,21,0,10,_binary '\0'),(55,'Pt chinois',25,6,'24 boxes x 2 pies',24.0000,115,0,20,_binary '\0'),(56,'Gnocchi di nonna Alice',26,5,'24 - 250 g pkgs.',38.0000,21,10,30,_binary '\0'),(57,'Ravioli Angelo',26,5,'24 - 250 g pkgs.',19.5000,36,0,20,_binary '\0'),(58,'Escargots de Bourgogne',27,8,'24 pieces',13.2500,62,0,20,_binary '\0'),(59,'Raclette Courdavault',28,4,'5 kg pkg.',55.0000,79,0,0,_binary '\0'),(60,'Camembert Pierrot',28,4,'15 - 300 g rounds',34.0000,19,0,0,_binary '\0'),(61,'Sirop d\'rable',29,2,'24 - 500 ml bottles',28.5000,113,0,25,_binary '\0'),(62,'Tarte au sucre',29,3,'48 pies',49.3000,17,0,0,_binary '\0'),(63,'Vegie-spread',7,2,'15 - 625 g jars',43.9000,24,0,5,_binary '\0'),(64,'Wimmers gute Semmelkndel',12,5,'20 bags x 4 pieces',33.2500,22,80,30,_binary '\0'),(65,'Louisiana Fiery Hot Pepper Sauce',2,2,'32 - 8 oz bottles',21.0500,76,0,0,_binary '\0'),(66,'Louisiana Hot Spiced Okra',2,2,'24 - 8 oz jars',17.0000,4,100,20,_binary '\0'),(67,'Laughing Lumberjack Lager',16,1,'24 - 12 oz bottles',14.0000,52,0,10,_binary '\0'),(68,'Scottish Longbreads',8,3,'10 boxes x 8 pieces',12.5000,6,10,15,_binary '\0'),(69,'Gudbrandsdalsost',15,4,'10 kg pkg.',36.0000,26,0,15,_binary '\0'),(70,'Outback Lager',7,1,'24 - 355 ml bottles',15.0000,15,10,30,_binary '\0'),(71,'Flotemysost',15,4,'10 - 500 g pkgs.',21.5000,26,0,0,_binary '\0'),(72,'Mozzarella di Giovanni',14,4,'24 - 200 g pkgs.',34.8000,14,0,0,_binary '\0'),(73,'Rd Kaviar',17,8,'24 - 150 g jars',15.0000,101,0,5,_binary '\0'),(74,'Longlife Tofu',4,7,'5 kg pkg.',10.0000,4,20,5,_binary '\0'),(75,'Rhnbru Klosterbier',12,1,'24 - 0.5 l bottles',7.7500,125,0,25,_binary '\0'),(76,'Lakkalikri',23,1,'500 ml',18.0000,57,0,20,_binary '\0'),(77,'Original Frankfurter grne Soe',12,2,'12 boxes',13.0000,32,0,15,_binary '\0');
+INSERT INTO `products` VALUES (1,'Chai',1,1,'10 boxes x 20 bags',18.0000,39,0,10,_binary '\0',0,NULL),(2,'Chang',1,1,'24 - 12 oz bottles',19.0000,17,40,25,_binary '\0',0,NULL),(3,'Aniseed Syrup',1,2,'12 - 550 ml bottles',10.0000,13,70,25,_binary '\0',0,NULL),(4,'Chef Anton\'s Cajun Seasoning',2,2,'48 - 6 oz jars',22.0000,53,0,0,_binary '\0',0,NULL),(5,'Chef Anton\'s Gumbo Mix',2,2,'36 boxes',21.3500,0,0,0,_binary '',0,NULL),(6,'Grandma\'s Boysenberry Spread',3,2,'12 - 8 oz jars',25.0000,120,0,25,_binary '\0',0,NULL),(7,'Uncle Bob\'s Organic Dried Pears',3,7,'12 - 1 lb pkgs.',30.0000,15,0,10,_binary '\0',0,NULL),(8,'Northwoods Cranberry Sauce',3,2,'12 - 12 oz jars',40.0000,6,0,0,_binary '\0',0,NULL),(9,'Mishi Kobe Niku',4,6,'18 - 500 g pkgs.',97.0000,29,0,0,_binary '',0,NULL),(10,'Ikura',4,8,'12 - 200 ml jars',31.0000,31,0,0,_binary '\0',0,NULL),(11,'Queso Cabrales',5,4,'1 kg pkg.',21.0000,22,30,30,_binary '\0',0,NULL),(12,'Queso Manchego La Pastora',5,4,'10 - 500 g pkgs.',38.0000,86,0,0,_binary '\0',0,NULL),(13,'Konbu',6,8,'2 kg box',6.0000,24,0,5,_binary '\0',0,NULL),(14,'Tofu',6,7,'40 - 100 g pkgs.',23.2500,35,0,0,_binary '\0',0,NULL),(15,'Genen Shouyu',6,2,'24 - 250 ml bottles',15.5000,39,0,5,_binary '\0',0,NULL),(16,'Pavlova',7,3,'32 - 500 g boxes',17.4500,29,0,10,_binary '\0',0,NULL),(17,'Alice Mutton',7,6,'20 - 1 kg tins',39.0000,0,0,0,_binary '',0,NULL),(18,'Carnarvon Tigers',7,8,'16 kg pkg.',62.5000,42,0,0,_binary '\0',0,NULL),(19,'Teatime Chocolate Biscuits',8,3,'10 boxes x 12 pieces',9.2000,25,0,5,_binary '\0',0,NULL),(20,'Sir Rodney\'s Marmalade',8,3,'30 gift boxes',81.0000,40,0,0,_binary '\0',0,NULL),(21,'Sir Rodney\'s Scones',8,3,'24 pkgs. x 4 pieces',10.0000,3,40,5,_binary '\0',0,NULL),(22,'Gustaf\'s Knckebrd',9,5,'24 - 500 g pkgs.',21.0000,104,0,25,_binary '\0',0,NULL),(23,'Tunnbrd',9,5,'12 - 250 g pkgs.',9.0000,61,0,25,_binary '\0',0,NULL),(24,'Guaran Fantstica',10,1,'12 - 355 ml cans',4.5000,20,0,0,_binary '',0,NULL),(25,'NuNuCa Nu-Nougat-Creme',11,3,'20 - 450 g glasses',14.0000,76,0,30,_binary '\0',0,NULL),(26,'Gumbr Gummibrchen',11,3,'100 - 250 g bags',31.2300,15,0,0,_binary '\0',0,NULL),(27,'Schoggi Schokolade',11,3,'100 - 100 g pieces',43.9000,49,0,30,_binary '\0',0,NULL),(28,'Rssle Sauerkraut',12,7,'25 - 825 g cans',45.6000,26,0,0,_binary '',0,NULL),(29,'Thringer Rostbratwurst',12,6,'50 bags x 30 sausgs.',123.7900,0,0,0,_binary '',0,NULL),(30,'Nord-Ost Matjeshering',13,8,'10 - 200 g glasses',25.8900,10,0,15,_binary '\0',0,NULL),(31,'Gorgonzola Telino',14,4,'12 - 100 g pkgs',12.5000,0,70,20,_binary '\0',0,NULL),(32,'Mascarpone Fabioli',14,4,'24 - 200 g pkgs.',32.0000,9,40,25,_binary '\0',0,NULL),(33,'Geitost',15,4,'500 g',2.5000,112,0,20,_binary '\0',0,NULL),(34,'Sasquatch Ale',16,1,'24 - 12 oz bottles',14.0000,111,0,15,_binary '\0',0,NULL),(35,'Steeleye Stout',16,1,'24 - 12 oz bottles',18.0000,20,0,15,_binary '\0',0,NULL),(36,'Inlagd Sill',17,8,'24 - 250 g  jars',19.0000,112,0,20,_binary '\0',0,NULL),(37,'Gravad lax',17,8,'12 - 500 g pkgs.',26.0000,11,50,25,_binary '\0',0,NULL),(38,'Cte de Blaye',18,1,'12 - 75 cl bottles',263.5000,17,0,15,_binary '\0',0,NULL),(39,'Chartreuse verte',18,1,'750 cc per bottle',18.0000,69,0,5,_binary '\0',0,NULL),(40,'Boston Crab Meat',19,8,'24 - 4 oz tins',18.4000,123,0,30,_binary '\0',0,NULL),(41,'Jack\'s New England Clam Chowder',19,8,'12 - 12 oz cans',9.6500,85,0,10,_binary '\0',0,NULL),(42,'Singaporean Hokkien Fried Mee',20,5,'32 - 1 kg pkgs.',14.0000,26,0,0,_binary '',0,NULL),(43,'Ipoh Coffee',20,1,'16 - 500 g tins',46.0000,17,10,25,_binary '\0',0,NULL),(44,'Gula Malacca',20,2,'20 - 2 kg bags',19.4500,27,0,15,_binary '\0',0,NULL),(45,'Rogede sild',21,8,'1k pkg.',9.5000,5,70,15,_binary '\0',0,NULL),(46,'Spegesild',21,8,'4 - 450 g glasses',12.0000,95,0,0,_binary '\0',0,NULL),(47,'Zaanse koeken',22,3,'10 - 4 oz boxes',9.5000,36,0,0,_binary '\0',0,NULL),(48,'Chocolade',22,3,'10 pkgs.',12.7500,15,70,25,_binary '\0',0,NULL),(49,'Maxilaku',23,3,'24 - 50 g pkgs.',20.0000,10,60,15,_binary '\0',0,NULL),(50,'Valkoinen suklaa',23,3,'12 - 100 g bars',16.2500,65,0,30,_binary '\0',0,NULL),(51,'Manjimup Dried Apples',24,7,'50 - 300 g pkgs.',53.0000,20,0,10,_binary '\0',0,NULL),(52,'Filo Mix',24,5,'16 - 2 kg boxes',7.0000,38,0,25,_binary '\0',0,NULL),(53,'Perth Pasties',24,6,'48 pieces',32.8000,0,0,0,_binary '',0,NULL),(54,'Tourtire',25,6,'16 pies',7.4500,21,0,10,_binary '\0',0,NULL),(55,'Pt chinois',25,6,'24 boxes x 2 pies',24.0000,115,0,20,_binary '\0',0,NULL),(56,'Gnocchi di nonna Alice',26,5,'24 - 250 g pkgs.',38.0000,21,10,30,_binary '\0',0,NULL),(57,'Ravioli Angelo',26,5,'24 - 250 g pkgs.',19.5000,36,0,20,_binary '\0',0,NULL),(58,'Escargots de Bourgogne',27,8,'24 pieces',13.2500,62,0,20,_binary '\0',0,NULL),(59,'Raclette Courdavault',28,4,'5 kg pkg.',55.0000,79,0,0,_binary '\0',0,NULL),(60,'Camembert Pierrot',28,4,'15 - 300 g rounds',34.0000,19,0,0,_binary '\0',0,NULL),(61,'Sirop d\'rable',29,2,'24 - 500 ml bottles',28.5000,113,0,25,_binary '\0',0,NULL),(62,'Tarte au sucre',29,3,'48 pies',49.3000,17,0,0,_binary '\0',0,NULL),(63,'Vegie-spread',7,2,'15 - 625 g jars',43.9000,24,0,5,_binary '\0',0,NULL),(64,'Wimmers gute Semmelkndel',12,5,'20 bags x 4 pieces',33.2500,22,80,30,_binary '\0',0,NULL),(65,'Louisiana Fiery Hot Pepper Sauce',2,2,'32 - 8 oz bottles',21.0500,76,0,0,_binary '\0',0,NULL),(66,'Louisiana Hot Spiced Okra',2,2,'24 - 8 oz jars',17.0000,4,100,20,_binary '\0',0,NULL),(67,'Laughing Lumberjack Lager',16,1,'24 - 12 oz bottles',14.0000,52,0,10,_binary '\0',0,NULL),(68,'Scottish Longbreads',8,3,'10 boxes x 8 pieces',12.5000,6,10,15,_binary '\0',0,NULL),(69,'Gudbrandsdalsost',15,4,'10 kg pkg.',36.0000,26,0,15,_binary '\0',0,NULL),(70,'Outback Lager',7,1,'24 - 355 ml bottles',15.0000,15,10,30,_binary '\0',0,NULL),(71,'Flotemysost',15,4,'10 - 500 g pkgs.',21.5000,26,0,0,_binary '\0',0,NULL),(72,'Mozzarella di Giovanni',14,4,'24 - 200 g pkgs.',34.8000,14,0,0,_binary '\0',0,NULL),(73,'Rd Kaviar',17,8,'24 - 150 g jars',15.0000,101,0,5,_binary '\0',0,NULL),(74,'Longlife Tofu',4,7,'5 kg pkg.',10.0000,4,20,5,_binary '\0',0,NULL),(75,'Rhnbru Klosterbier',12,1,'24 - 0.5 l bottles',7.7500,125,0,25,_binary '\0',0,NULL),(76,'Lakkalikri',23,1,'500 ml',18.0000,57,0,20,_binary '\0',0,NULL),(77,'Original Frankfurter grne Soe',12,2,'12 boxes',13.0000,32,0,15,_binary '\0',0,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -554,6 +578,31 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `City`,
  1 AS `Country`*/;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `que1`
+--
+
+DROP TABLE IF EXISTS `que1`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `que1` (
+  `id` int NOT NULL,
+  `product_name` varchar(255) DEFAULT NULL,
+  `supplierid` int DEFAULT NULL,
+  `unitprice` float DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `que1`
+--
+
+LOCK TABLES `que1` WRITE;
+/*!40000 ALTER TABLE `que1` DISABLE KEYS */;
+/*!40000 ALTER TABLE `que1` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `region`
@@ -737,7 +786,7 @@ CREATE TABLE `sqnnect_table` (
 
 LOCK TABLES `sqnnect_table` WRITE;
 /*!40000 ALTER TABLE `sqnnect_table` DISABLE KEYS */;
-INSERT INTO `sqnnect_table` VALUES (1,'Get all the products of a Supplier sorted in order of their price.','SELECT ProductName, SupplierID, \r unitprice from Products WHERE SupplierID = \'<updateValue>\' order by Unitprice '),(2,' Add price of all the products for all Categories and get the result in sorted order of their price','SELECT categories.categoryname, Sum(products.unitprice) as TotalPrice from categories inner join products on products.CategoryID=categories.CategoryID GROUP BY categoryname ORDER BY TotalPrice;'),(3,'Get order details for all customers.','SELECT customers.contactName, `order details`.* from ((`order details` INNER JOIN orders ON orders.OrderID=`order details`.OrderID) inner join customers on orders.CustomerID=customers.CustomerID);'),(4,'Get order details and products associated with a particular order for a particular customer.','SELECT customers.contactName, products.productName,`order details`.* from (((`order details` INNER JOIN orders ON orders.OrderID=`order details`.OrderID)inner join products on products.productId=`order details`.productID) inner join customers on orders.CustomerID=customers.CustomerID) WHERE ContactName= \"<updateValue>\";'),(5,'Get all the products for a Supplier in a row. [Products should be separated by comma].','SELECT group_concat(productName) AS Product from products WHERE SupplierID = \'<updateValue>\';'),(6,'Write a function to calculate the total price of a Order [Parameter to pass Order Id]','SELECT totalpriceorder(10248);'),(7,'Create a view of customers, order details and orders. Name the view as ‘vw_customers_order’.','SELECT * from vw_customers_order; '),(8,'Create a table consisting of all the columns present in ‘vw_customers_order’. Write a Stored procedure to read from this view and insert all the entries in the newly created table. Name Stored Procedure as ‘sp_insert_customers_order’','SELECT * from sp_insert_customer_order; '),(9,'Create a table consisting of all the columns present in ‘vw_customers_order’. Write a Stored procedure to read from this view and insert all the entries in the newly created table for a given customer. Name Stored Procedure as ‘sp_insert_customers_order(customer_id int)’ ','SELECT *from sp_insert_customer_order_table; '),(10,'Create a new table consisting of “customer id”,”customer_name”, “all_orders”. Apply  (while / for) loop in Stored procedure to get list of customers and then for every customer fetch all his orders separated by “,”. Insert the same into the newly created table ','SElect * from categories;');
+INSERT INTO `sqnnect_table` VALUES (1,'Get all the products of a Supplier sorted in order of their price.','SELECT ProductName,SupplierID,unitprice from Products WHERE SupplierID = \'2\' order by Unitprice; '),(2,' Add price of all the products for all Categories and get the result in sorted order of their price','SELECT categories.categoryname as Category, group_concat(products.productName) as Products, Sum(products.unitprice) as TotalPrice from categories inner join products on products.CategoryID=categories.CategoryID GROUP BY categoryname ORDER BY TotalPrice;'),(3,'Get order details for all customers.','SELECT customers.ContactName, `order details`.OrderID, products.ProductName, `order details`.UnitPrice, `order details`.Quantity, `order details`.Discount, customers.Phone, customers.Address from (((`order details` INNER JOIN orders ON orders.OrderID=`order details`.OrderID) inner join customers on orders.CustomerID=customers.CustomerID) inner join products on products.productId=`order details`.productID);'),(4,'Get order details and products associated with a particular order for a particular customer.','SELECT customers.ContactName, `order details`.OrderID, products.ProductName, `order details`.UnitPrice, `order details`.Quantity, `order details`.Discount, customers.Phone, customers.Address from (((`order details` INNER JOIN orders ON orders.OrderID=`order details`.OrderID) inner join customers on orders.CustomerID=customers.CustomerID) inner join products on products.productId=`order details`.productID) WHERE ContactName=\"Maria Anders\";'),(5,'Get all the products for a Supplier in a row. [Products should be separated by comma].','SELECT suppliers.contactName as SupplierName, group_concat(products.productName) AS Product from (products inner join suppliers on suppliers.supplierId=products.supplierId) WHERE suppliers.SupplierID = \'4\';'),(6,'Write a function to calculate the total price of a Order [Parameter to pass Order Id]','SELECT totalpriceorder(10248);'),(7,'Create a view of customers, order details and orders. Name the view as ‘vw_customers_order’.','SELECT * from vw_customers_order; '),(8,'Create a table consisting of all the columns present in ‘vw_customers_order’. Write a Stored procedure to read from this view and insert all the entries in the newly created table. Name Stored Procedure as ‘sp_insert_customers_order’','SELECT * from sp_insert_customer_order; '),(9,'Create a table consisting of all the columns present in ‘vw_customers_order’. Write a Stored procedure to read from this view and insert all the entries in the newly created table for a given customer. Name Stored Procedure as ‘sp_insert_customers_order(customer_id int)’ ','SELECT *from sp_insert_customer_order_table; '),(10,'Create a new table consisting of “customer id”,”customer_name”, “all_orders”. Apply  (while / for) loop in Stored procedure to get list of customers and then for every customer fetch all his orders separated by “,”. Insert the same into the newly created table ','SElect * from categories;'),(11,'Test me','SELECT * from Shippers;');
 /*!40000 ALTER TABLE `sqnnect_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -833,6 +882,33 @@ INSERT INTO `territories` VALUES ('01581','Westboro                             
 UNLOCK TABLES;
 
 --
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(256) NOT NULL,
+  `first_name` varchar(128) NOT NULL,
+  `last_name` varchar(128) NOT NULL,
+  `password` longtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'sahil.saiwal@airlinq.com','Sahil','Saiwal','$2a$10$emhORr/Y6ENSNxBGpq8g1OxUSm9XIP68VeQZvrYwuC4urkIfMLsF6'),(2,'yash@gmail.com','Yash','Sharma','$2a$10$RyzpgEbj02q3PkHKkd8V0OBHTElsi1jeFsX92eiSUGeMT3NAKmqX2'),(3,'ashish@gmail.com','Ashish','Kumawat','$2a$10$mQYfW6T3SnCN6IdQCV0LCOqvUrilFYrsTlEozemEThVPRgLz8TNpa'),(4,'harsh@gmail.com','Harsh','Pareek','$2a$10$r2Ty6On4lId/53/s/thQQ.uPo96x8RyeSiCQ7qAfxD5m.L3S4/9c6'),(5,'jin@gmail.com','mayank','jain','$2a$10$SCqI2n/7AbGfM/RjAapCUOxvbdveKZMfZaM/2j/ec6xG1Ss/DVwEK'),(6,'jin@gmail.com','mayank','jain','$2a$10$KRFYQ3x7XtrYsubYbqtVmOy1oXSILFwdVrWDavWjLltYGinTRthPm'),(7,'trainee@gmail.com','Team','Trainee','$2a$10$59BVqf7pChWWDe2TEc26Ge180D5JNNoAfk2M2p5Xkgx9/xRVvxUDi');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `usersqnnect`
 --
 
@@ -843,6 +919,7 @@ CREATE TABLE `usersqnnect` (
   `id` int NOT NULL,
   `Username` varchar(45) NOT NULL,
   `Password` varchar(45) NOT NULL,
+  `FullName` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Username_UNIQUE` (`Username`),
   UNIQUE KEY `id_UNIQUE` (`id`)
@@ -855,7 +932,6 @@ CREATE TABLE `usersqnnect` (
 
 LOCK TABLES `usersqnnect` WRITE;
 /*!40000 ALTER TABLE `usersqnnect` DISABLE KEYS */;
-INSERT INTO `usersqnnect` VALUES (1,'Sahil','sahil123'),(2,'Ashish','ashish123'),(3,'Yash','yash123'),(4,'Harsh','harsh123'),(5,'Mayank','mayank123');
 /*!40000 ALTER TABLE `usersqnnect` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1192,4 +1268,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-20 16:29:07
+-- Dump completed on 2022-07-28  9:56:59

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>List Users</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <p>
+                Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+            </p>
+            <input type="submit" value="Sign Out" />
+        </form>
+    </div>
+    <div>
+        <h1>List of Users</h1>
+    </div>
+     
+    <div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>User ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+             <!--       <th>Action</th>-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="users: ${listUsers}">
+                    <td th:text="${users.id}">User ID</td>
+                    <td th:text="${users.firstName}">First Name</td>
+                    <td th:text="${users.lastName}">Last Name</td>
+                    <td th:text="${users.email}">E-mail</td>
+
+           <!--         <td>
+                      <a href="/editContact?id=${users.id}">Edit</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/deleteContact?id=${users.id}">Delete</a>
+                        <a type = "submit" th:value="${users.id}" th:name="${users.id}" th:href="@{/${users.id}}">Edit</a>
+            <a id="button" class='button' type='submit' th:value="${users.id}" th:name="${users.id}" th:href="@{/users/id(id=${users.id})}">Run
+          </a>
+                        &nbsp;&nbsp;
+                        <a th:href="@{/delete}">Delete</a>
+                    </td>-->
+                </tr>
+            </tbody>
+        </table>
+        <h1><a th:href="@{/sqnnect}">SQnnect</a></h1>
+    </div>
+</div>
+</body>
+</html>

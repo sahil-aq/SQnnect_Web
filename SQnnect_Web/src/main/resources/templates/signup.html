@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>SQnnect</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+	<form class='form' th:action="@{/process_register}" th:object="${user}" method="post">
+  <div class='control'>
+    <h1 style="color: white;">
+      Sign Up
+    </h1>
+  </div>
+  <div class='control block-cube block-input'>
+    <input name='first name' placeholder='First Name' type='text' th:field="*{firstName}" required  maxlength="20">
+    <div class='bg-top'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg-right'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg'>
+      <div class='bg-inner'></div>
+    </div>
+  </div><div class='control block-cube block-input'>
+    <input name='email' placeholder='Last Name' type='text' th:field="*{lastName}" required  maxlength="20">
+    <div class='bg-top'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg-right'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg'>
+      <div class='bg-inner'></div>
+    </div>
+  </div>
+  <div class='control block-cube block-input'>
+    <input name='email' placeholder='Email' type='email' th:field="*{email}" required>
+    <div class='bg-top'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg-right'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg'>
+      <div class='bg-inner'></div>
+    </div>
+  </div>
+  <div class='control block-cube block-input'>
+    <input name='password' placeholder='Password' type='password' th:field="*{password}" required  maxlength="10">
+    <div class='bg-top'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg-right'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg'>
+      <div class='bg-inner'></div>
+    </div>
+  </div>
+  <button class='btn block-cube block-cube-hover' type="submit">
+    <div class='bg-top'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg-right'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='bg'>
+      <div class='bg-inner'></div>
+    </div>
+    <div class='text'>
+      Sign up
+    </div>
+  </button>
+</form>
+
+</body>
+
+</html>
