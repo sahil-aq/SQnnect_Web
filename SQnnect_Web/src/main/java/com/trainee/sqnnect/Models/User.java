@@ -1,9 +1,17 @@
 package com.trainee.sqnnect.Models;
 import javax.persistence.*;
-
+/**
+ * 
+ * @author yash
+ * @version 1.0
+ */
 @Entity
 @Table(name = "users")
+/**create a new Java class named User to map with the corresponding users
+ *  table (not yet created) in the database*/
 public class User {
+	/**the user information consists of ID, email, password, first name and last name. Here I use common annotations
+	 *  from JPA. The setters and getters are now shown for brevity, so be sure you generate those methods as well*/
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

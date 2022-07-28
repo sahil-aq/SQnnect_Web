@@ -6,8 +6,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.trainee.sqnnect.Models.User;
-
+/**
+ * 
+ * @author yash
+ * @version 1.0
+ */
 public class CustomUserDetails implements UserDetails {
+	/**implement authentication (login) feature, we need to create a class of sub-type UserDetails 
+	 * (defined by Spring Security) to represent an authentication user*/
 	
 	private User user;
     

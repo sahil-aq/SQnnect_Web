@@ -1,5 +1,9 @@
 package com.trainee.sqnnect.Services;
-
+/**
+ * 
+ * @author yash
+ * @version 1.0
+ */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,9 +18,13 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 	@Autowired
     private UserRepository Repo;
+	/**Spring Security how to look up the user information, 
+	 * a class that implements the UserDetailsService interface*/
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		/**Spring Security will invoke the loadUserByUsername() method to authenticate the user,
+		 *  and if successful, a new object of type CustomUserDetails object is created to represent the authenticated user.*/
 		// TODO Auto-generated method stub
 		User user = Repo.findByEmail(email);
 		if (email == null)

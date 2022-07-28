@@ -20,7 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.trainee.sqnnect.Models.User;
 import com.trainee.sqnnect.Repository.UserRepository;
-
+/**
+ * 
+ * @author Yash
+ * @version 1.0
+ */
 @Controller
 //@EnableCaching
 public class AppController {
@@ -33,6 +37,10 @@ public class AppController {
     public String viewHomePage() {
         return "index";
     }
+    /**
+     * Add a new handler method in the controller class to show the user registration form (sign up)
+     * 
+     */
     
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
@@ -40,6 +48,13 @@ public class AppController {
          
         return "signup_form";
     }
+    
+/**a handler method in the controller class to process registration 
+    
+     */
+    /**we use BCryptPasswordEncoder to encode the user’s password so the password itself it not 
+     * stored in database (for better security) – only the hash value of the password is stored*/
+    
     @RequestMapping(value = "/process_register", method = RequestMethod.GET)
     public String processRegister(User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -50,6 +65,10 @@ public class AppController {
          
         return "register_success";
     }
+    
+    /** we call the findAll() method on the UserRepository 
+     * but we didn’t write that method. It is defined by the Spring Data JPA’s JpaRepository interface.*/
+    
     
     @GetMapping("/users")
     //@Cacheable(value="users")
