@@ -23,6 +23,7 @@ import com.trainee.sqnnect.Services.QuetionsService;
  */
 
 @Controller
+@RequestMapping("/users")
 public class MainController {
 
 	@Autowired

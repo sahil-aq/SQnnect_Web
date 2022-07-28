@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="com/trainee/sqnnect/Repository/" kind="src" path="SQnnect_Web/src/main/java"/>
+	<classpathentry kind="src" path="SQnnect_Web/src/main/java/com/trainee/sqnnect/Repository"/>
+	<classpathentry kind="src" path="SQnnect_Web/src/test/java"/>
+	<classpathentry kind="lib" path="SQnnect_Web/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="output" path="SQnnect_Web/target/classes"/>
+</classpath>
